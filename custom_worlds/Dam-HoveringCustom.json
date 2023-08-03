@@ -1,0 +1,93 @@
+{
+    "name": "Hovering",
+    "world": "Dam",
+    "main_agent": "auv0",
+    "ticks_per_sec": 200,
+    "frames_per_sec": true,
+    "octree_min": 0.02,
+    "octree_max": 5.0,
+    "agents":[
+        {
+            "agent_name": "auv0",
+            "agent_type": "HoveringAUV",
+            "sensors": [
+                {
+                    "sensor_type": "PoseSensor",
+                    "socket": "IMUSocket"
+                },
+                {
+                    "sensor_type": "VelocitySensor",
+                    "socket": "IMUSocket"
+                },
+                {
+                    "sensor_type": "IMUSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 200,
+                    "configuration": {
+                        "AccelSigma": 0.00277,
+                        "AngVelSigma": 0.00123,
+                        "AccelBiasSigma": 0.00141,
+                        "AngVelBiasSigma": 0.00388,
+                        "ReturnBias": true
+                    }
+                },
+                {
+                    "sensor_type": "GPSSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 5,
+                    "configuration":{
+                        "Sigma": 0.5,
+                        "Depth": 1,
+                        "DepthSigma": 0.25
+                    }
+                },
+                {
+                    "sensor_type": "DVLSensor",
+                    "socket": "DVLSocket",
+                    "Hz": 20,
+                    "configuration": {
+                        "Elevation": 22.5,
+                        "VelSigma": 0.02626,
+                        "ReturnRange": true,
+                        "MaxRange": 50,
+                        "RangeSigma": 0.1
+                    }
+                },
+                {
+                    "sensor_type": "DepthSensor",
+                    "socket": "DepthSocket",
+                    "Hz": 100,
+                    "configuration": {
+                        "Sigma": 0.255
+                    }
+                },
+                {
+                    "sensor_type": "ImagingSonar",
+                    "socket": "SonarSocket",
+                    "Hz": 1,
+                    "configuration": {
+                        "RangeBins": 512,
+                        "AzimuthBins": 512,
+                        "RangeMin": 1,
+                        "RangeMax": 40,
+                        "InitOctreeRange": 50,
+                        "Elevation": 20,
+                        "Azimuth": 20,
+                        "AzimuthStreaks": -1,
+                        "ScaleNoise": true,
+                        "AddSigma": 0.15,
+                        "MultSigma": 0.2,
+                        "RangeSigma": 0.1,
+                        "MultiPath": true
+                    }
+                }
+            ],
+            "control_scheme": 0,
+            "location": [31.5, 91.5, -37],
+            "rotation": [0.0, 0.0, -135.0]
+        }
+    ],
+
+    "window_width":  1280,
+    "window_height": 720
+}
