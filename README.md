@@ -6,18 +6,24 @@ Check out our intro video on [Youtube](https://www.youtube.com/watch?v=kyBcfZYSL
 
 ## Checking out sources
 
-- Create a ```/holoocean``` folder, making sure to ensure proper permissions.
+- Create a ```holoocean``` folder wherever you'd like, but make sure that the holoocean directory is owned by your own user and group, because the scripts will use the same user and group inside the Docker container to access it.
+
+```
+export HOLOOCEAN_DIR=/path/to/holoocean
+mkdir -p $HOLOOCEAN_DIR
+```
+
 - Clone this repository to ```/holoocean/holoocean_tools```:
 
 ```
-cd /holoocean
+cd $HOLOOCEAN_DIR
 git clone https://github.com/migeran/holoocean_tools.git
 ```
 
 - Run the checkout script to check out additional dependencies:
 
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./checkout.sh
 ```
 
@@ -28,7 +34,7 @@ To build with the HoloOcean release version, you only need to run the ```build.s
 Additionally, you can list all available build tasks with ```build.sh help```, and execute a single build task with ```build.sh <task> selected_only```:
 
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./build.sh
 ```
 
@@ -37,7 +43,7 @@ cd /holoocean/holoocean_tools
 To build HoloOcean develop version and it's dependencies, you need to run ``checkout.sh`` as follows:
 
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./checkout.sh --dev-build
 ```
 
@@ -48,7 +54,7 @@ Then you need to run the ```build_all_from_src.sh``` script.
 Additionally, you can list all available build tasks with ```build_all_from_src.sh help```, and execute a single build task with ```build_all_from_src.sh <task> selected_only```:
 
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./build_all_from_src.sh
 ```
 
@@ -58,7 +64,7 @@ This command will build every component from source, including Unreal Engine and
 
 - To test if HoloOcean was set up correctly, an example scene can be run with the following commands:
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./run_holoocean_test.sh
 ```
 
@@ -66,7 +72,7 @@ cd /holoocean/holoocean_tools
 
 - Once everything is set up, enter the docker container with the following commands:
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./run_holoocean_container.sh
 ```
 
@@ -74,7 +80,7 @@ cd /holoocean/holoocean_tools
 
 - Once the container is running, enter it from another terminal with the following commands:
 ```
-cd /holoocean/holoocean_tools
+cd $HOLOOCEAN_DIR/holoocean_tools
 ./enter_holoocean_container.sh
 ```
 
