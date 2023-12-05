@@ -15,4 +15,4 @@ cd $HOLOOCEAN_DIR/holoocean_tools
 
 source utils.sh
 
-run_holoocean $HOLOOCEAN_DIR/holoocean_tools/docker/point_cloud_visualization_test.sh
+run_holoocean /holoocean/holoocean_tools/docker/point_cloud_visualization_test.sh
