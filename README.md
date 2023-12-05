@@ -68,6 +68,19 @@ cd $HOLOOCEAN_DIR/holoocean_tools
 ./run_holoocean_test.sh
 ```
 
+## Run the pointcloud visualization demo
+
+- If the test has run successfully, the pointcloud visualization demo can be run with the following commands:
+```
+cd $HOLOOCEAN_DIR/holoocean_tools
+./run_point_cloud_visualization_test.sh
+```
+
+NOTE: On the first run, the simulator needs to generate octrees, which will take some before you can control the robot.
+
+To control the robot, click on the Simulation Control Window and use the keys listed there.
+
+
 ## Enter Docker
 
 - Once everything is set up, enter the docker container with the following commands:
